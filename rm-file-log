@@ -1,0 +1,23 @@
+
+#!/bin/bash
+
+z=$(ls)
+while read -r z
+do
+   var=$var$(awk -F- '$3<11 {print $0}'); #anything below the month mentioned will be added
+done <<< "$z"
+#echo $var
+echo "yeloooow"
+echo $var
+while read -r z
+do
+   var2=$var2$(awk -F- '$2=="proxy.log.2022" {print $0}'); #the factor thats being checked like the year or a specific type of file
+done <<< "$var"
+
+
+for ANY in $var2
+do
+rm -f $ANY # where the magic happens
+#echo "removed" && echo $ANY 
+echo $ANY 
+done
