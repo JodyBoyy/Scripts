@@ -1,0 +1,26 @@
+
+#!/bin/bash
+
+z=$(ls)
+while read -r z
+do
+   var=$var$(awk -F- '$3<11 {print $0}');
+done <<< "$z"
+#echo $var
+echo "yeloooow"
+
+while read -r z
+do
+   var2=$var2$(awk -F- '$1=="elasticsearch" {print $0}');
+done <<< "$var"
+
+while read -r z
+do
+   var3=$var3$(awk -F- '$2==2022 {print $0}');
+done <<< "$var2"
+
+for ANY in $var3
+do
+rm -f $ANY
+echo "removed" && echo $ANY 
+done
